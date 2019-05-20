@@ -1,0 +1,9 @@
+{
+  "javascript.validate.enable": false,
+  "flow.useNPMPackagedFlow": true,
+  "prettier.tslintIntegration": false,
+  "javascript.format.enable": false,
+  "prettier.eslintIntegration": true,
+  "flow.showUncovered": false,
+  "jest.showCoverageOnLoad": true
+}
