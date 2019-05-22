@@ -8,12 +8,28 @@ import Colors from '../constants/Colors';
 type Props = {
   focused: boolean,
   name: string,
+  type: string,
 };
 
 const TabBarIcon = (props: Props) => {
-  const { focused, name } = props;
+  const { focused, name, type = 'Ionicons' } = props;
+  const iconSet = {
+    AntDesign: Icon.AntDesign,
+    Entypo: Icon.Entypo,
+    EvilIcons: Icon.EvilIcons,
+    Feather: Icon.Feather,
+    FontAwesome: Icon.FontAwesome,
+    Foundation: Icon.Foundation,
+    Ionicons: Icon.Ionicons,
+    MaterialIcons: Icon.MaterialIcons,
+    MaterialCommunityIcons: Icon.MaterialCommunityIcons,
+    SimpleLineIcons: Icon.SimpleLineIcons,
+    Octicons: Icon.Octicons,
+    Zocial: Icon.Zocial,
+  };
+  const MyIcon = iconSet[type];
   return (
-    <Icon.Ionicons
+    <MyIcon
       name={name}
       size={26}
       style={{ marginBottom: -3 }}

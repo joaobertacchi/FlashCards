@@ -103,8 +103,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class HomeScreen extends React.Component<*, *> {
-  static navigationOptions = { header: null };
+export default class AboutScreen extends React.Component<*, *> {
+  static navigationOptions = {
+    title: 'About',
+  };
 
   handleLearnMorePress = () => {
     WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');

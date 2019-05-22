@@ -12,16 +12,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class LinksScreen extends React.Component<*, *> {
+export default class DecksScreen extends React.Component<*, *> {
   static navigationOptions = {
-    title: 'Links',
+    title: 'Decks',
   };
 
   render() {
     return (
       <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-         * content, we just wanted to provide you with some helpful links */}
+        {/* TODO: list of decks */}
         <ExpoLinksView />
       </ScrollView>
     );
