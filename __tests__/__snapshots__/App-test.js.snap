@@ -100,6 +100,7 @@ exports[`App snapshot renders the root without loading screen 1`] = `
                         "bottom": 0,
                         "left": 0,
                         "opacity": 1,
+                        "paddingTop": 64,
                         "position": "absolute",
                         "right": 0,
                         "top": 0,
@@ -122,77 +123,7 @@ exports[`App snapshot renders the root without loading screen 1`] = `
                           "flex": 1,
                         }
                       }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "backgroundColor": "#fff",
-                            "flex": 1,
-                          }
-                        }
-                      >
-                        <View
-                          style={
-                            Object {
-                              "alignItems": "center",
-                              "backgroundColor": "#fbfbfb",
-                              "bottom": 0,
-                              "left": 0,
-                              "paddingVertical": 20,
-                              "position": "absolute",
-                              "right": 0,
-                              "shadowColor": "black",
-                              "shadowOffset": Object {
-                                "height": -3,
-                              },
-                              "shadowOpacity": 0.1,
-                              "shadowRadius": 3,
-                            }
-                          }
-                        >
-                          <Text
-                            style={
-                              Object {
-                                "color": "rgba(96,100,109, 1)",
-                                "fontSize": 17,
-                                "textAlign": "center",
-                              }
-                            }
-                          >
-                            This is a tab bar. You can edit it in:
-                          </Text>
-                          <View
-                            style={
-                              Array [
-                                Object {
-                                  "backgroundColor": "rgba(0,0,0,0.05)",
-                                  "borderRadius": 3,
-                                  "paddingHorizontal": 4,
-                                },
-                                Object {
-                                  "marginTop": 5,
-                                },
-                              ]
-                            }
-                          >
-                            <Text
-                              style={
-                                Array [
-                                  Object {
-                                    "color": "rgba(96,100,109, 0.8)",
-                                  },
-                                  Object {
-                                    "fontFamily": "space-mono",
-                                  },
-                                ]
-                              }
-                            >
-                              navigation/MainTabNavigator.js
-                            </Text>
-                          </View>
-                        </View>
-                      </View>
-                    </View>
+                    />
                   </View>
                 </View>
                 <View
@@ -213,7 +144,7 @@ exports[`App snapshot renders the root without loading screen 1`] = `
                         "backgroundColor": "#FFF",
                         "transform": Array [
                           Object {
-                            "translateX": -750,
+                            "translateX": 0,
                           },
                         ],
                       }
@@ -241,7 +172,56 @@ exports[`App snapshot renders the root without loading screen 1`] = `
                             "flex": 1,
                           }
                         }
-                      />
+                      >
+                        <View
+                          style={
+                            Object {
+                              "bottom": 0,
+                              "flexDirection": "row",
+                              "left": 0,
+                              "position": "absolute",
+                              "right": 0,
+                              "top": 0,
+                            }
+                          }
+                        >
+                          <View
+                            pointerEvents="box-none"
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "backgroundColor": "transparent",
+                                "bottom": 0,
+                                "flexDirection": "row",
+                                "justifyContent": "center",
+                                "left": 0,
+                                "opacity": 1,
+                                "position": "absolute",
+                                "right": 0,
+                                "top": 0,
+                              }
+                            }
+                          >
+                            <Text
+                              accessibilityTraits="header"
+                              allowFontScaling={false}
+                              numberOfLines={1}
+                              onLayout={[Function]}
+                              style={
+                                Object {
+                                  "color": "rgba(0, 0, 0, .9)",
+                                  "fontSize": 17,
+                                  "fontWeight": "600",
+                                  "marginHorizontal": 16,
+                                  "textAlign": "center",
+                                }
+                              }
+                            >
+                              All decks
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
                     </View>
                   </View>
                 </View>
@@ -281,7 +261,7 @@ exports[`App snapshot renders the root without loading screen 1`] = `
         }
       >
         <View
-          accessibilityLabel="Home, tab, 1 of 3"
+          accessibilityLabel="Decks, tab, 1 of 3"
           accessibilityRole="button"
           accessibilityStates={
             Array [
@@ -379,11 +359,11 @@ exports[`App snapshot renders the root without loading screen 1`] = `
               }
             }
           >
-            Home
+            Decks
           </Text>
         </View>
         <View
-          accessibilityLabel="Links, tab, 2 of 3"
+          accessibilityLabel="New deck, tab, 2 of 3"
           accessibilityRole="button"
           accessibilityStates={Array []}
           accessible={true}
@@ -477,11 +457,11 @@ exports[`App snapshot renders the root without loading screen 1`] = `
               }
             }
           >
-            Links
+            New deck
           </Text>
         </View>
         <View
-          accessibilityLabel="Settings, tab, 3 of 3"
+          accessibilityLabel="About, tab, 3 of 3"
           accessibilityRole="button"
           accessibilityStates={Array []}
           accessible={true}
@@ -575,7 +555,7 @@ exports[`App snapshot renders the root without loading screen 1`] = `
               }
             }
           >
-            Settings
+            About
           </Text>
         </View>
       </View>
