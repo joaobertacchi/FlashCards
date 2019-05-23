@@ -13,6 +13,12 @@
     "flow": "./node_modules/.bin/flow"
   },
   "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@react-native-community|react-native|expo|@expo|react-navigation-stack|@react-navigation|react-navigation-tabs|react-navigation))"
+    ],
+    "setupFiles": [
+      "./jestSetupFile.js"
+    ],
     "preset": "jest-expo"
   },
   "dependencies": {
