@@ -52,3 +52,60 @@ describe('saveDeckTitle', () => {
     expect(AsyncStorage.setItem.mock.calls[0][0]).toBe(StorageConstant.key);
   });
 });
+
+describe('getDecks', () => {
+  beforeEach(async () => {
+    await AsyncStorage.clear();
+  });
+
+  test('returns empty object if no deck is saved', async () => {
+    const emptyObject = {};
+    await expect(StorageAPI.getDecks()).resolves.toEqual(emptyObject);
+  });
+
+  test('returns a single deck if only one deck was saved', async () => {
+    const deckTitle = 'name1';
+    const response = {
+      [deckTitle]: {
+        title: deckTitle,
+        questions: [],
+      },
+    };
+
+    await StorageAPI.saveDeckTitle(deckTitle);
+    await expect(StorageAPI.getDecks()).resolves.toEqual(response);
+  });
+
+  test('returns a single deck if the same deck was saved twice or more', async () => {
+    const deckTitle = 'name1';
+    const response = {
+      [deckTitle]: {
+        title: deckTitle,
+        questions: [],
+      },
+    };
+
+    await StorageAPI.saveDeckTitle(deckTitle);
+    await StorageAPI.saveDeckTitle(deckTitle);
+    await expect(StorageAPI.getDecks()).resolves.toEqual(response);
+  });
+
+  test('returns a two decks if the distinct decks were saved', async () => {
+    const deckTitle1 = 'name1';
+    const deckTitle2 = 'name12';
+    const response = {
+      [deckTitle1]: {
+        title: deckTitle1,
+        questions: [],
+      },
+      [deckTitle2]: {
+        title: deckTitle2,
+        questions: [],
+      },
+    };
+
+    await StorageAPI.saveDeckTitle(deckTitle1);
+    await StorageAPI.saveDeckTitle(deckTitle2);
+    await expect(StorageAPI.getDecks()).resolves.toEqual(response);
+  });
+});

@@ -13,7 +13,12 @@ const createDecks = (title: string, questions: Array<Card> = []): Decks => ({
   },
 });
 
-export const getDecks = (): Decks => {};
+export const getDecks = async (): Promise<Decks> => {
+  const resultJson = await AsyncStorage.getItem(StorageConstants.key);
+  if (!resultJson) return {};
+  const result = JSON.parse(resultJson);
+  return result;
+};
 
 export const getDeck = (id: DeckTitle): Deck => {};
 
