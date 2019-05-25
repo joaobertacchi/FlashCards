@@ -109,3 +109,29 @@ describe('getDecks', () => {
     await expect(StorageAPI.getDecks()).resolves.toEqual(response);
   });
 });
+
+describe('getDeck', () => {
+  beforeEach(async () => {
+    await AsyncStorage.clear();
+  });
+
+  test('returns null if there is no deck with provided id', async () => {
+    await expect(StorageAPI.getDeck('invalid')).resolves.toEqual(null);
+  });
+
+  test('returns a deck if id is valid', async () => {
+    const expectedTitle = 'name1';
+    const deckTitles = [expectedTitle, 'name2', 'name3'];
+    const expectedDeck = {
+      title: expectedTitle,
+      questions: [],
+    };
+    // eslint-disable-next-line no-restricted-syntax
+    for (const title of deckTitles) {
+      // eslint-disable-next-line no-await-in-loop
+      await StorageAPI.saveDeckTitle(title);
+    }
+
+    await expect(StorageAPI.getDeck(expectedTitle)).resolves.toEqual(expectedDeck);
+  });
+});

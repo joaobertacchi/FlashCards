@@ -20,7 +20,10 @@ export const getDecks = async (): Promise<Decks> => {
   return result;
 };
 
-export const getDeck = (id: DeckTitle): Deck => {};
+export const getDeck = async (id: DeckTitle): Promise<?Deck> => {
+  const decks = await getDecks();
+  return decks[id] || null;
+};
 
 export const saveDeckTitle = async (title: DeckTitle): Promise<Decks> => {
   if (!title) throw new Error('invalid title');
