@@ -135,3 +135,62 @@ describe('getDeck', () => {
     await expect(StorageAPI.getDeck(expectedTitle)).resolves.toEqual(expectedDeck);
   });
 });
+
+describe('addCardToDeck', () => {
+  beforeEach(async () => {
+    await AsyncStorage.clear();
+  });
+
+  test('add a single card to an existent deck', async () => {
+    const deckTitle = 'deckName';
+    const card = {
+      question: 'Question',
+      answer: 'Answer',
+    };
+    const expectedDeck = {
+      title: deckTitle,
+      questions: [card],
+    };
+
+    await StorageAPI.saveDeckTitle(deckTitle);
+    await StorageAPI.addCardToDeck(deckTitle, card);
+
+    await expect(StorageAPI.getDeck(deckTitle)).resolves.toEqual(expectedDeck);
+  });
+  test('add two cards to an existent deck', async () => {
+    const deckTitle = 'deckName';
+    const card1 = {
+      question: 'Question1',
+      answer: 'Answer1',
+    };
+    const card2 = {
+      question: 'Question2',
+      answer: 'Answer2',
+    };
+    const expectedDeck = {
+      title: deckTitle,
+      questions: [card1, card2],
+    };
+
+    await StorageAPI.saveDeckTitle(deckTitle);
+    await StorageAPI.addCardToDeck(deckTitle, card1);
+    await StorageAPI.addCardToDeck(deckTitle, card2);
+
+    await expect(StorageAPI.getDeck(deckTitle)).resolves.toEqual(expectedDeck);
+  });
+  test('add a card to an invalid deck', async () => {
+    const deckTitle = 'deckName';
+    const card = {
+      question: 'Question',
+      answer: 'Answer',
+    };
+    const expectedDeck = {
+      title: deckTitle,
+      questions: [card],
+    };
+
+    await StorageAPI.addCardToDeck(deckTitle, card);
+
+    await expect(StorageAPI.getDeck(deckTitle)).resolves.toEqual(expectedDeck);
+  });
+});

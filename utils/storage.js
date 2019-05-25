@@ -41,7 +41,23 @@ export const saveDeckTitle = async (title: DeckTitle): Promise<Decks> => {
   return resultDecks;
 };
 
-export const addCardToDeck = (title: DeckTitle, card: Card): boolean => {};
+export const addCardToDeck = async (title: DeckTitle, card: Card): Promise<boolean> => {
+  try {
+    let deck = await getDeck(title);
+    if (!deck) {
+      const decks = await saveDeckTitle(title);
+      deck = decks[title];
+    }
+    deck.questions.push(card);
+    const updatedDeckJson = JSON.stringify({
+      [title]: deck,
+    });
+    await AsyncStorage.mergeItem(StorageConstants.key, updatedDeckJson);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
 
 export default {
   getDecks,
