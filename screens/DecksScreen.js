@@ -1,7 +1,10 @@
 // @flow
 
 import React from 'react';
-import { FlatList, StyleSheet, Text } from 'react-native';
+import {
+  FlatList, StyleSheet, Text, TouchableOpacity,
+} from 'react-native';
+import type { Deck, Card, Decks } from '../types';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +14,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const decks = {
+type State = {
+  decks: Decks,
+};
+
+type Props = {
+  +navigation: Object,
+};
+
+const initialDecks = {
   React: {
     title: 'React',
     questions: [
@@ -37,28 +48,56 @@ const decks = {
   },
 };
 
-export default class DecksScreen extends React.Component<*, *> {
+class DecksScreen extends React.Component<Props, State> {
   static navigationOptions = {
     title: 'All decks',
   };
 
-  renderItem = ({ item }) => {
-    const deckSize = item.questions.length;
+  state = {
+    decks: initialDecks,
+  };
+
+  handleAddCard = (title: string) => (card: Card) => () => this.setState((prevState) => {
+    const newState = {
+      ...prevState,
+      decks: {
+        ...prevState.decks,
+        [title]: {
+          ...prevState.decks[title],
+          questions: [...prevState.decks[title].questions, card],
+        },
+      },
+    };
+    return newState;
+  });
+
+  renderItem = ({ item: deck }: { +item: Deck }) => {
+    const deckSize = deck.questions.length;
+    const { navigation } = this.props;
     return (
-      <Text>{`${item.title} - ${deckSize} card${deckSize > 1 ? 's' : ''}`}</Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Deck', { deck, onAddCard: this.handleAddCard(deck.title) })
+        }
+      >
+        <Text>{`${deck.title} - ${deckSize} card${deckSize > 1 ? 's' : ''}`}</Text>
+      </TouchableOpacity>
     );
   };
 
-  getKey = item => item.title;
+  getKey = (deck: Deck) => deck.title;
 
   render() {
+    const { decks } = this.state;
+    const arrayDecks = Object.values(decks);
     return (
       <FlatList
         style={styles.container}
-        data={Object.values(decks)}
+        data={arrayDecks}
         renderItem={this.renderItem}
         keyExtractor={this.getKey}
       />
     );
   }
 }
+
+export default DecksScreen;
