@@ -2,16 +2,25 @@
 
 import React from 'react';
 import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import {
+  createStackNavigator,
+  createBottomTabNavigator,
+} from 'react-navigation';
 
 import AboutScreen from '../screens/AboutScreen';
 import TabBarIcon from '../components/TabBarIcon';
 import SettingsScreen from '../screens/SettingsScreen';
 import DecksScreen from '../screens/DecksScreen';
+import DeckScreen from '../screens/DeckScreen';
 import NewDeckScreen from '../screens/NewDeckScreen';
+import AddCardScreen from '../screens/AddCardScreen';
+import QuizScreen from '../screens/QuizScreen';
 
 const DecksStack = createStackNavigator({
   Decks: DecksScreen,
+  Deck: DeckScreen,
+  AddCard: AddCardScreen,
+  Quiz: QuizScreen,
 });
 
 DecksStack.navigationOptions = {
@@ -65,8 +74,10 @@ SettingsStack.navigationOptions = {
   ),
 };
 
-export default createBottomTabNavigator({
+const tabNavigatorRoutes = {
   DecksStack,
   NewDeckStack,
   AboutStack,
-});
+};
+
+export default createBottomTabNavigator(tabNavigatorRoutes);
