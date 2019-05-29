@@ -5,6 +5,7 @@ import {
   FlatList, StyleSheet, Text, TouchableOpacity,
 } from 'react-native';
 import type { Deck, Card, Decks } from '../types';
+import { getValues } from '../utils';
 
 const styles = StyleSheet.create({
   container: {
@@ -88,7 +89,7 @@ class DecksScreen extends React.Component<Props, State> {
 
   render() {
     const { decks } = this.state;
-    const arrayDecks = Object.values(decks);
+    const arrayDecks = getValues<Decks>(decks);
     return (
       <FlatList
         style={styles.container}

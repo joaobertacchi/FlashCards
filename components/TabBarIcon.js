@@ -8,7 +8,7 @@ import Colors from '../constants/Colors';
 type Props = {
   focused: boolean,
   name: string,
-  type: string,
+  type?: string,
 };
 
 const TabBarIcon = (props: Props) => {

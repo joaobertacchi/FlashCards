@@ -48,7 +48,7 @@ export const addCardToDeck = async (title: DeckTitle, card: Card): Promise<boole
       const decks = await saveDeckTitle(title);
       deck = decks[title];
     }
-    deck.questions.push(card);
+    deck.questions = [...deck.questions, card];
     const updatedDeckJson = JSON.stringify({
       [title]: deck,
     });
