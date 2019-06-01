@@ -1,6 +1,6 @@
 // @flow
 
-import AsyncStorage from '@react-native-community/async-storage';
+import { AsyncStorage } from 'react-native';
 import type {
   Card, DeckTitle, Deck, Decks,
 } from '../types';
@@ -43,14 +43,14 @@ export const saveDeckTitle = async (title: DeckTitle): Promise<Decks> => {
 
 export const addCardToDeck = async (title: DeckTitle, card: Card): Promise<boolean> => {
   try {
-    let deck = await getDeck(title);
-    if (!deck) {
-      const decks = await saveDeckTitle(title);
-      deck = decks[title];
-    }
-    deck.questions = [...deck.questions, card];
+    const deck = await getDeck(title);
+    if (!deck) await saveDeckTitle(title);
+
     const updatedDeckJson = JSON.stringify({
-      [title]: deck,
+      [title]: {
+        title,
+        questions: [card],
+      },
     });
     await AsyncStorage.mergeItem(StorageConstants.key, updatedDeckJson);
     return true;
