@@ -14,8 +14,37 @@ const createDecks = (title: string, questions: Array<Card> = []): Decks => ({
 });
 
 export const getDecks = async (): Promise<Decks> => {
-  const resultJson = await AsyncStorage.getItem(StorageConstants.key);
-  if (!resultJson) return {};
+  let resultJson = await AsyncStorage.getItem(StorageConstants.key);
+  if (!resultJson) {
+    const initialDecks = {
+      // React: {
+      //   title: 'React',
+      //   questions: [
+      //     {
+      //       question: 'What is React?',
+      //       answer: 'A library for managing user interfaces',
+      //     },
+      //     {
+      //       question: 'Where do you make Ajax requests in React?',
+      //       answer: 'The componentDidMount lifecycle event',
+      //     },
+      //   ],
+      // },
+      // JavaScript: {
+      //   title: 'JavaScript',
+      //   questions: [
+      //     {
+      //       question: 'What is a closure?',
+      //       answer:
+      //         'The combination of a function and the lexical environment within which that function was declared.',
+      //     },
+      //   ],
+      // },
+    };
+    const initialDecksJson = JSON.stringify(initialDecks);
+    await AsyncStorage.setItem(StorageConstants.key, initialDecksJson);
+    resultJson = await AsyncStorage.getItem(StorageConstants.key);
+  }
   const result = JSON.parse(resultJson);
   return result;
 };
@@ -41,15 +70,28 @@ export const saveDeckTitle = async (title: DeckTitle): Promise<Decks> => {
   return resultDecks;
 };
 
+export const resetDecks = async (): Promise<boolean> => {
+  try {
+    await AsyncStorage.removeItem(StorageConstants.key);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 export const addCardToDeck = async (title: DeckTitle, card: Card): Promise<boolean> => {
   try {
-    const deck = await getDeck(title);
-    if (!deck) await saveDeckTitle(title);
+    let deck = await getDeck(title);
+    if (!deck) {
+      await saveDeckTitle(title);
+      deck = await getDeck(title);
+      if (!deck) return false;
+    }
 
     const updatedDeckJson = JSON.stringify({
       [title]: {
         title,
-        questions: [card],
+        questions: [...deck.questions, card],
       },
     });
     await AsyncStorage.mergeItem(StorageConstants.key, updatedDeckJson);

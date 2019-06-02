@@ -2,18 +2,24 @@
 
 import React from 'react';
 import {
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
+  ScrollView, Text, TextInput, TouchableOpacity,
 } from 'react-native';
+import { connect } from 'react-redux';
+
+import { handleAddCardToDeck } from '../actions/decks';
+
+import type { Card, DeckTitle } from '../types';
 
 type State = {
   question: string,
   answer: string,
 };
 
-type Props = {
+type DispatchProps = {
+  addCard: Function,
+};
+
+type Props = DispatchProps & {
   navigation: Object,
 };
 
@@ -39,15 +45,21 @@ class AddCardScreen extends React.PureComponent<Props, State> {
     });
   };
 
+  handleAddCard = () => {
+    const { navigation, addCard } = this.props;
+    const {
+      state: {
+        params: { deckTitle },
+      },
+    } = navigation;
+    const { question, answer } = this.state;
+    addCard({ question, answer }, deckTitle);
+    this.setState({ question: '', answer: '' });
+    navigation.goBack();
+  };
+
   render() {
     const { question, answer } = this.state;
-    const {
-      navigation: {
-        state: {
-          params: { onAddCard },
-        },
-      },
-    } = this.props;
     return (
       <ScrollView>
         <TextInput
@@ -66,7 +78,7 @@ class AddCardScreen extends React.PureComponent<Props, State> {
           value={answer}
           placeholder="Answer"
         />
-        <TouchableOpacity onPress={onAddCard({ question, answer })}>
+        <TouchableOpacity onPress={this.handleAddCard}>
           <Text>Add</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -74,4 +86,11 @@ class AddCardScreen extends React.PureComponent<Props, State> {
   }
 }
 
-export default AddCardScreen;
+const mapDispatchToProps = dispatch => ({
+  addCard: (card: Card, title: DeckTitle) => dispatch(handleAddCardToDeck(card, title)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(AddCardScreen);

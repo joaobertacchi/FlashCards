@@ -4,8 +4,13 @@ import React from 'react';
 import {
   FlatList, StyleSheet, Text, TouchableOpacity,
 } from 'react-native';
-import type { Deck, Card, Decks } from '../types';
+import { connect } from 'react-redux';
+import type { Deck, Decks } from '../types';
+
+// Workaround to fix flow problem
 import { getValues } from '../utils';
+
+import { handleInitialData } from '../actions/decks';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,69 +20,31 @@ const styles = StyleSheet.create({
   },
 });
 
-type State = {
+type DispatchProps = {
+  initialize: Function,
+};
+
+type Props = DispatchProps & {
+  +navigation: Object,
   decks: Decks,
 };
 
-type Props = {
-  +navigation: Object,
-};
-
-const initialDecks = {
-  React: {
-    title: 'React',
-    questions: [
-      {
-        question: 'What is React?',
-        answer: 'A library for managing user interfaces',
-      },
-      {
-        question: 'Where do you make Ajax requests in React?',
-        answer: 'The componentDidMount lifecycle event',
-      },
-    ],
-  },
-  JavaScript: {
-    title: 'JavaScript',
-    questions: [
-      {
-        question: 'What is a closure?',
-        answer:
-          'The combination of a function and the lexical environment within which that function was declared.',
-      },
-    ],
-  },
-};
-
-class DecksScreen extends React.Component<Props, State> {
+class DecksScreen extends React.Component<Props> {
   static navigationOptions = {
     title: 'All decks',
   };
 
-  state = {
-    decks: initialDecks,
-  };
-
-  handleAddCard = (title: string) => (card: Card) => () => this.setState((prevState) => {
-    const newState = {
-      ...prevState,
-      decks: {
-        ...prevState.decks,
-        [title]: {
-          ...prevState.decks[title],
-          questions: [...prevState.decks[title].questions, card],
-        },
-      },
-    };
-    return newState;
-  });
+  componentDidMount() {
+    const { initialize } = this.props;
+    initialize();
+  }
 
   renderItem = ({ item: deck }: { +item: Deck }) => {
     const deckSize = deck.questions.length;
     const { navigation } = this.props;
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate('Deck', { deck, onAddCard: this.handleAddCard(deck.title) })
+        onPress={() => navigation.navigate('Deck', { deckTitle: deck.title })
         }
       >
         <Text>{`${deck.title} - ${deckSize} card${deckSize > 1 ? 's' : ''}`}</Text>
@@ -88,7 +55,7 @@ class DecksScreen extends React.Component<Props, State> {
   getKey = (deck: Deck) => deck.title;
 
   render() {
-    const { decks } = this.state;
+    const { decks } = this.props;
     const arrayDecks = getValues<Decks>(decks);
     return (
       <FlatList
@@ -101,4 +68,15 @@ class DecksScreen extends React.Component<Props, State> {
   }
 }
 
-export default DecksScreen;
+const mapStateToProps = ({ decks }) => ({
+  decks,
+});
+
+const mapDispatchToProps = dispatch => ({
+  initialize: () => dispatch(handleInitialData()),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(DecksScreen);

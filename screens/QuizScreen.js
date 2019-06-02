@@ -2,6 +2,8 @@
 
 import React, { Fragment } from 'react';
 import { ScrollView, Text } from 'react-native';
+import { connect } from 'react-redux';
+
 import CardFront from '../components/CardFront';
 import CardBack from '../components/CardBack';
 import QuizNextButton from '../components/QuizNextButton';
@@ -16,38 +18,37 @@ type CurrentCardType = {
 type State = {
   currentCard: CurrentCardType,
   score: ScoreType,
-  questions: Questions,
+  fixedQuestions: Questions,
   isFinished: boolean,
 };
 
-type Props = {
+type StateProps = {
+  questions: Questions,
+};
+
+type OwnProps = {
   navigation: Object,
 };
 
+type Props = StateProps & OwnProps;
+
 class QuizScreen extends React.PureComponent<Props, State> {
   static navigationOptions = ({ navigation }: Props) => ({
-    title: `${navigation.state.params.deck.title} Quiz`,
+    title: `${navigation.state.params.deckTitle} Quiz`,
   });
 
   initialState: State;
 
   constructor(props: Props) {
     super(props);
-    const { navigation } = this.props;
-    const {
-      state: {
-        params: {
-          deck: { questions },
-        },
-      },
-    } = navigation;
+    const { questions } = this.props;
     this.initialState = {
       currentCard: {
         questionIndex: 0,
         cardFront: true,
       },
       score: {},
-      questions,
+      fixedQuestions: questions,
       isFinished: false,
     };
     this.state = {
@@ -101,18 +102,18 @@ class QuizScreen extends React.PureComponent<Props, State> {
   render() {
     const {
       currentCard: { questionIndex, cardFront },
-      questions,
+      fixedQuestions,
       score,
       isFinished,
     } = this.state;
-    const { answer, question } = questions[questionIndex];
+    const { answer, question } = fixedQuestions[questionIndex];
     return (
       <ScrollView>
         {isFinished ? (
-          <QuizResult questions={questions} score={score} onRestart={this.restartQuiz} />
+          <QuizResult questions={fixedQuestions} score={score} onRestart={this.restartQuiz} />
         ) : (
           <Fragment>
-            <Text>{`Question #${questionIndex + 1} of ${questions.length}`}</Text>
+            <Text>{`Question #${questionIndex + 1} of ${fixedQuestions.length}`}</Text>
             {cardFront ? (
               <CardFront question={question} onShowBack={this.showFront(false)} />
             ) : (
@@ -125,7 +126,7 @@ class QuizScreen extends React.PureComponent<Props, State> {
             )}
             <QuizNextButton
               index={questionIndex}
-              total={questions.length}
+              total={fixedQuestions.length}
               onShowNextQuestion={this.showNext}
               onShowQuizResult={this.showResult}
             />
@@ -136,4 +137,15 @@ class QuizScreen extends React.PureComponent<Props, State> {
   }
 }
 
-export default QuizScreen;
+const mapsStateToProps = (state, { navigation }: OwnProps) => {
+  const {
+    state: {
+      params: { deckTitle },
+    },
+  } = navigation;
+  return {
+    questions: state.decks[deckTitle].questions,
+  };
+};
+
+export default connect(mapsStateToProps)(QuizScreen);

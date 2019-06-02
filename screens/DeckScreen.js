@@ -2,44 +2,51 @@
 
 import React from 'react';
 import { ScrollView, Text, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 
-type Props = {
+import type { Deck } from '../types';
+
+type StateProps = {
+  deck: Deck,
+};
+
+type OwnProps = {
   navigation: Object,
 };
 
-const DeckScreen = ({ navigation }: Props) => {
-  const {
-    state: {
-      params: { deck, onAddCard },
-    },
-  } = navigation;
+type Props = StateProps & OwnProps;
 
-  return (
-    <ScrollView>
-      <Text>{deck.title}</Text>
-      <Text>
-        {deck.questions.length}
-        {' cards'}
-      </Text>
-      <TouchableOpacity
-        onPress={
-          () => navigation.navigate(
-            'AddCard',
-            { onAddCard },
-          )
-        }
-      >
-        <Text>Add card</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Quiz', { deck })}>
+const DeckScreen = ({ navigation, deck }: Props) => (
+  <ScrollView>
+    <Text>{deck.title}</Text>
+    <Text>
+      {deck.questions.length}
+      {' cards'}
+    </Text>
+    <TouchableOpacity onPress={() => navigation.navigate('AddCard', { deckTitle: deck.title })}>
+      <Text>Add card</Text>
+    </TouchableOpacity>
+    {!!deck.questions.length && (
+      <TouchableOpacity onPress={() => navigation.navigate('Quiz', { deckTitle: deck.title })}>
         <Text>Start quiz</Text>
       </TouchableOpacity>
-    </ScrollView>
-  );
-};
+    )}
+  </ScrollView>
+);
 
 DeckScreen.navigationOptions = {
   title: 'Deck',
 };
 
-export default DeckScreen;
+const mapStateToProps = ({ decks }, { navigation }: OwnProps) => {
+  const {
+    state: {
+      params: { deckTitle },
+    },
+  } = navigation;
+  return {
+    deck: decks[deckTitle],
+  };
+};
+
+export default connect(mapStateToProps)(DeckScreen);

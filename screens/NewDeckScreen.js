@@ -7,12 +7,17 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import { connect } from 'react-redux';
 
 import { MonoText } from '../components/StyledText';
+
+import type { DeckTitle } from '../types';
+import { handleCreateDeck } from '../actions/decks';
 
 const styles = StyleSheet.create({
   container: {
@@ -103,9 +108,27 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class NewDeckScreen extends React.Component<*, *> {
+type State = {
+  deckTitle: DeckTitle,
+};
+
+type DispatchProps = {
+  addDeck: Function,
+};
+
+type OwnProps = {
+  navigation: Object,
+};
+
+type Props = DispatchProps & OwnProps;
+
+class NewDeckScreen extends React.Component<Props, State> {
   static navigationOptions = {
     title: 'New deck',
+  };
+
+  state = {
+    deckTitle: '',
   };
 
   handleLearnMorePress = () => {
@@ -116,6 +139,17 @@ export default class NewDeckScreen extends React.Component<*, *> {
     WebBrowser.openBrowserAsync(
       'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes',
     );
+  };
+
+  handleChangeTitle = (deckTitle: DeckTitle) => {
+    this.setState({ deckTitle });
+  };
+
+  handleAddDeck = () => {
+    const { deckTitle } = this.state;
+    const { addDeck, navigation } = this.props;
+    addDeck(deckTitle);
+    navigation.navigate('Decks');
   };
 
   maybeRenderDevelopmentModeWarning() {
@@ -143,10 +177,24 @@ export default class NewDeckScreen extends React.Component<*, *> {
   }
 
   render() {
+    const { deckTitle } = this.state;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          {/* TODO: create deck form (title, "Create deck" button) */}
+          <View style={styles.welcomeContainer}>
+            <Text>What is the title of your new deck?</Text>
+            <TextInput
+              style={{
+                borderWidth: 1,
+              }}
+              onChangeText={this.handleChangeTitle}
+              value={deckTitle}
+              placeholder="Deck Title"
+            />
+            <TouchableOpacity onPress={this.handleAddDeck}>
+              <Text>Add</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.welcomeContainer}>
             <Image
               source={
@@ -183,3 +231,9 @@ export default class NewDeckScreen extends React.Component<*, *> {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch): DispatchProps => ({
+  addDeck: (deckTitle: DeckTitle) => dispatch(handleCreateDeck(deckTitle)),
+});
+
+export default connect(null, mapDispatchToProps)(NewDeckScreen);

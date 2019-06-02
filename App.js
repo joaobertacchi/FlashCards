@@ -7,7 +7,11 @@ import {
 import {
   AppLoading, Asset, Font, Icon,
 } from 'expo';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import AppNavigator from './navigation/AppNavigator';
+import reducer from './reducers';
+import middleware from './middleware';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +28,9 @@ type State = {
   isLoadingComplete: boolean,
 };
 
-export default class App extends React.Component<Props, State> {
+const store = createStore(reducer, middleware);
+
+class App extends React.Component<Props, State> {
   state = {
     isLoadingComplete: false,
   };
@@ -50,7 +56,7 @@ export default class App extends React.Component<Props, State> {
     this.setState({ isLoadingComplete: true });
   };
 
-  render() {
+  renderApp() {
     const { isLoadingComplete } = this.state;
     const { skipLoadingScreen } = this.props;
     if (!isLoadingComplete && !skipLoadingScreen) {
@@ -69,4 +75,14 @@ export default class App extends React.Component<Props, State> {
       </View>
     );
   }
+
+  render() {
+    return (
+      <Provider store={store}>
+        {this.renderApp()}
+      </Provider>
+    );
+  }
 }
+
+export default App;

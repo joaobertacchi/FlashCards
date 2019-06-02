@@ -10,9 +10,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { WebBrowser, Updates } from 'expo';
+import { connect } from 'react-redux';
 
 import { MonoText } from '../components/StyledText';
+
+import { handleResetDecks } from '../actions/decks';
 
 const styles = StyleSheet.create({
   container: {
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class AboutScreen extends React.Component<*, *> {
+class AboutScreen extends React.Component<*, *> {
   static navigationOptions = {
     title: 'About',
   };
@@ -116,6 +119,12 @@ export default class AboutScreen extends React.Component<*, *> {
     WebBrowser.openBrowserAsync(
       'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes',
     );
+  };
+
+  handleResetStorage = () => {
+    const { resetStorage } = this.props;
+    resetStorage();
+    Updates.reloadFromCache();
   };
 
   maybeRenderDevelopmentModeWarning() {
@@ -146,6 +155,11 @@ export default class AboutScreen extends React.Component<*, *> {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.welcomeContainer}>
+            <TouchableOpacity onPress={this.handleResetStorage}>
+              <Text>Reset storage</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.welcomeContainer}>
             <Image
               source={
@@ -182,3 +196,12 @@ export default class AboutScreen extends React.Component<*, *> {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  resetStorage: () => dispatch(handleResetDecks()),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(AboutScreen);
