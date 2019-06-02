@@ -41,12 +41,22 @@ export async function setLocalNotification() {
       const nextMinute = new Date();
       nextMinute.setMinutes(nextMinute.getMinutes() + 1);
 
-      await Notifications.scheduleLocalNotificationAsync(createNotification(), {
-        // time: tomorrow,
-        time: nextMinute,
-        repeat: 'day',
-      });
-      AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
+      let time;
+      if (__DEV__) time = nextMinute;
+      else time = tomorrow;
+
+      try {
+        await Notifications.scheduleLocalNotificationAsync(createNotification(), {
+          time,
+          repeat: 'day',
+        });
+        AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
+      } catch (e) {
+        console.warn(
+          'A bug in Expo Client 2.11.0 (SDK 33) prevents correct local notification scheduling. See https://github.com/expo/expo/issues/4356. For testing local notifications use standalone app or Expo Client 2.10.6 [Android](https://d1ahtucjixef4r.cloudfront.net/Exponent-2.10.6.apk); [iOS](https://dpq5q02fu5f55.cloudfront.net/Exponent-2.10.0.tar.gz): ',
+          e,
+        );
+      }
     }
   }
 }
