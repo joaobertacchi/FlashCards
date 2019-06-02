@@ -9,6 +9,7 @@ import CardBack from '../components/CardBack';
 import QuizNextButton from '../components/QuizNextButton';
 import QuizResult from '../components/QuizResult';
 import type { Questions, ScoreType } from '../types';
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
 
 type CurrentCardType = {
   questionIndex: number,
@@ -81,6 +82,8 @@ class QuizScreen extends React.PureComponent<Props, State> {
     this.setState({
       isFinished: true,
     });
+    clearLocalNotification()
+      .then(() => setLocalNotification());
   };
 
   setVote = (index: number) => (vote: boolean) => () => {

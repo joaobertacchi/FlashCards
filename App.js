@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import AppNavigator from './navigation/AppNavigator';
 import reducer from './reducers';
 import middleware from './middleware';
+import { setLocalNotification } from './utils/helpers';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,6 +35,10 @@ class App extends React.Component<Props, State> {
   state = {
     isLoadingComplete: false,
   };
+
+  componentDidMount() {
+    setLocalNotification();
+  }
 
   loadResourcesAsync = async () => Promise.all([
     Asset.loadAsync([
