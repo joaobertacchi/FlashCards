@@ -149,7 +149,7 @@ class NewDeckScreen extends React.Component<Props, State> {
     const { deckTitle } = this.state;
     const { addDeck, navigation } = this.props;
     addDeck(deckTitle);
-    navigation.navigate('Decks');
+    navigation.navigate('Deck', { deckTitle });
   };
 
   maybeRenderDevelopmentModeWarning() {
@@ -192,7 +192,7 @@ class NewDeckScreen extends React.Component<Props, State> {
               placeholder="Deck Title"
             />
             <TouchableOpacity onPress={this.handleAddDeck}>
-              <Text>Add</Text>
+              <Text>Create Deck</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.welcomeContainer}>
@@ -236,4 +236,7 @@ const mapDispatchToProps = (dispatch): DispatchProps => ({
   addDeck: (deckTitle: DeckTitle) => dispatch(handleCreateDeck(deckTitle)),
 });
 
-export default connect(null, mapDispatchToProps)(NewDeckScreen);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(NewDeckScreen);

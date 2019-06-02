@@ -11,7 +11,7 @@ const CardFront = ({ question, onShowBack }: Props) => (
   <View>
     <Text>{question}</Text>
     <TouchableOpacity onPress={onShowBack}>
-      <Text>Show answer</Text>
+      <Text>Show Answer</Text>
     </TouchableOpacity>
   </View>
 );

@@ -24,9 +24,13 @@ type DispatchProps = {
   initialize: Function,
 };
 
-type Props = DispatchProps & {
-  +navigation: Object,
+type StateProps = {
   decks: Decks,
+  loading: boolean,
+};
+
+type Props = DispatchProps & StateProps & {
+  +navigation: Object,
 };
 
 class DecksScreen extends React.Component<Props> {
@@ -43,10 +47,7 @@ class DecksScreen extends React.Component<Props> {
     const deckSize = deck.questions.length;
     const { navigation } = this.props;
     return (
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Deck', { deckTitle: deck.title })
-        }
-      >
+      <TouchableOpacity onPress={() => navigation.navigate('Deck', { deckTitle: deck.title })}>
         <Text>{`${deck.title} - ${deckSize} card${deckSize > 1 ? 's' : ''}`}</Text>
       </TouchableOpacity>
     );
@@ -55,9 +56,11 @@ class DecksScreen extends React.Component<Props> {
   getKey = (deck: Deck) => deck.title;
 
   render() {
-    const { decks } = this.props;
+    const { decks, loading } = this.props;
     const arrayDecks = getValues<Decks>(decks);
-    return (
+    return loading ? (
+      <Text>Loading decks...</Text>
+    ) : (
       <FlatList
         style={styles.container}
         data={arrayDecks}
@@ -70,6 +73,7 @@ class DecksScreen extends React.Component<Props> {
 
 const mapStateToProps = ({ decks }) => ({
   decks,
+  loading: !decks,
 });
 
 const mapDispatchToProps = dispatch => ({

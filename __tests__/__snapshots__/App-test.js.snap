@@ -363,7 +363,7 @@ exports[`App snapshot renders the root without loading screen 1`] = `
           </Text>
         </View>
         <View
-          accessibilityLabel="New deck, tab, 2 of 3"
+          accessibilityLabel="Create deck, tab, 2 of 3"
           accessibilityRole="button"
           accessibilityStates={Array []}
           accessible={true}
@@ -457,7 +457,7 @@ exports[`App snapshot renders the root without loading screen 1`] = `
               }
             }
           >
-            New deck
+            Create deck
           </Text>
         </View>
         <View

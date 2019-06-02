@@ -25,7 +25,7 @@ type Props = DispatchProps & {
 
 class AddCardScreen extends React.PureComponent<Props, State> {
   static navigationOptions = {
-    title: 'Add Card',
+    title: 'Create Question',
   };
 
   state = {
@@ -79,7 +79,7 @@ class AddCardScreen extends React.PureComponent<Props, State> {
           placeholder="Answer"
         />
         <TouchableOpacity onPress={this.handleAddCard}>
-          <Text>Add</Text>
+          <Text>Save Question</Text>
         </TouchableOpacity>
       </ScrollView>
     );

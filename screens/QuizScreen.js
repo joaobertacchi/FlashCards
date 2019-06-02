@@ -99,6 +99,11 @@ class QuizScreen extends React.PureComponent<Props, State> {
     });
   };
 
+  backToDeck = () => {
+    const { navigation } = this.props;
+    navigation.goBack();
+  };
+
   render() {
     const {
       currentCard: { questionIndex, cardFront },
@@ -107,13 +112,20 @@ class QuizScreen extends React.PureComponent<Props, State> {
       isFinished,
     } = this.state;
     const { answer, question } = fixedQuestions[questionIndex];
+    const questionsLeft = fixedQuestions.length - questionIndex - 1;
     return (
       <ScrollView>
         {isFinished ? (
-          <QuizResult questions={fixedQuestions} score={score} onRestart={this.restartQuiz} />
+          <QuizResult
+            questions={fixedQuestions}
+            score={score}
+            onRestart={this.restartQuiz}
+            onBackToDeck={this.backToDeck}
+          />
         ) : (
           <Fragment>
             <Text>{`Question #${questionIndex + 1} of ${fixedQuestions.length}`}</Text>
+            <Text>{`${questionsLeft} question(s) left...`}</Text>
             {cardFront ? (
               <CardFront question={question} onShowBack={this.showFront(false)} />
             ) : (

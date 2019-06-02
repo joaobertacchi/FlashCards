@@ -35,7 +35,7 @@ const NewDeckStack = createStackNavigator({
 });
 
 NewDeckStack.navigationOptions = {
-  tabBarLabel: 'New deck',
+  tabBarLabel: 'Create deck',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
