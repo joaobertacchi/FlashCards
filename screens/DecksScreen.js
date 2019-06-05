@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-  FlatList, StyleSheet, Text, TouchableOpacity,
+  FlatList, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import type { Deck, Decks } from '../types';
@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  separator: {
+    height: 1,
+    backgroundColor: '#CED0CE',
+  },
 });
 
 type DispatchProps = {
@@ -29,9 +33,10 @@ type StateProps = {
   loading: boolean,
 };
 
-type Props = DispatchProps & StateProps & {
-  +navigation: Object,
-};
+type Props = DispatchProps &
+  StateProps & {
+    +navigation: Object,
+  };
 
 class DecksScreen extends React.Component<Props> {
   static navigationOptions = {
@@ -53,6 +58,8 @@ class DecksScreen extends React.Component<Props> {
     );
   };
 
+  renderSeparator = () => (<View style={styles.separator} />)
+
   getKey = (deck: Deck) => deck.title;
 
   render() {
@@ -66,6 +73,7 @@ class DecksScreen extends React.Component<Props> {
         data={arrayDecks}
         renderItem={this.renderItem}
         keyExtractor={this.getKey}
+        ItemSeparatorComponent={this.renderSeparator}
       />
     );
   }
