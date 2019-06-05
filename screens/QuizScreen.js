@@ -137,14 +137,12 @@ class QuizScreen extends React.PureComponent<Props, State> {
                 isCorrect={score[questionIndex]}
                 onShowFront={this.showFront(true)}
                 onVote={this.setVote(questionIndex)}
+                cardNumber={questionIndex}
+                cardCount={fixedQuestions.length}
+                onShowNextQuestion={this.showNext}
+                onShowQuizResult={this.showResult}
               />
             )}
-            <QuizNextButton
-              index={questionIndex}
-              total={fixedQuestions.length}
-              onShowNextQuestion={this.showNext}
-              onShowQuizResult={this.showResult}
-            />
           </Fragment>
         )}
       </ScrollView>

@@ -1,12 +1,19 @@
 // @flow
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
+
+import Button from './Button';
+import QuizNextButton from './QuizNextButton';
 
 type Props = {
   answer: string,
   isCorrect?: boolean,
   onShowFront: () => void,
   onVote: (correct: boolean) => () => void,
+  onShowNextQuestion: () => void,
+  onShowQuizResult: () => void,
+  cardNumber: number,
+  cardCount: number,
 };
 
 const CardBack = ({
@@ -14,21 +21,28 @@ const CardBack = ({
   isCorrect,
   onShowFront,
   onVote,
+  onShowNextQuestion,
+  onShowQuizResult,
+  cardNumber,
+  cardCount,
 }: Props) => (
   <View>
     <Text>{answer}</Text>
-    <TouchableOpacity onPress={onShowFront}>
-      <Text>Show question</Text>
-    </TouchableOpacity>
-    {isCorrect !== undefined && (
-      <Text>{`You marked your answer as ${isCorrect ? 'correct' : 'incorrect'}`}</Text>
-    )}
-    <TouchableOpacity onPress={onVote(true)}>
-      <Text>Correct</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={onVote(false)}>
-      <Text>Incorrect</Text>
-    </TouchableOpacity>
+    <Button onPress={onShowFront} text="Show question" type="primaryLight" />
+    <Button onPress={onVote(true)} text="Correct" type={isCorrect ? 'successLight' : 'success'} />
+    <Button
+      onPress={onVote(false)}
+      text="Incorrect"
+      type={isCorrect === false ? 'dangerLight' : 'danger'}
+    />
+
+    <QuizNextButton
+      index={cardNumber}
+      total={cardCount}
+      onShowNextQuestion={onShowNextQuestion}
+      onShowQuizResult={onShowQuizResult}
+      disabled={isCorrect === undefined}
+    />
   </View>
 );
 

@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
+
+import Button from './Button';
 
 type Props = {
   question: string,
@@ -10,9 +12,7 @@ type Props = {
 const CardFront = ({ question, onShowBack }: Props) => (
   <View>
     <Text>{question}</Text>
-    <TouchableOpacity onPress={onShowBack}>
-      <Text>Show Answer</Text>
-    </TouchableOpacity>
+    <Button onPress={onShowBack} text="Show Answer" type="primary" />
   </View>
 );
 

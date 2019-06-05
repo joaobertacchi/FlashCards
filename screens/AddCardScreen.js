@@ -2,13 +2,15 @@
 
 import React from 'react';
 import {
-  ScrollView, Text, TextInput, TouchableOpacity,
+  ScrollView, TextInput,
 } from 'react-native';
 import { connect } from 'react-redux';
 
 import { handleAddCardToDeck } from '../actions/decks';
 
 import type { Card, DeckTitle } from '../types';
+
+import Button from '../components/Button';
 
 type State = {
   question: string,
@@ -78,9 +80,7 @@ class AddCardScreen extends React.PureComponent<Props, State> {
           value={answer}
           placeholder="Answer"
         />
-        <TouchableOpacity onPress={this.handleAddCard}>
-          <Text>Save Question</Text>
-        </TouchableOpacity>
+        <Button onPress={this.handleAddCard} text="Save Question" type="primary" />
       </ScrollView>
     );
   }

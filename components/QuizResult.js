@@ -1,7 +1,9 @@
 // @flow
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View } from 'react-native';
 import type { Questions, ScoreType } from '../types';
+
+import Button from './Button';
 
 type Props = {
   questions: Questions,
@@ -18,12 +20,8 @@ const QuizResult = ({
   return (
     <View>
       <Text>{`Your score is ${correct} out of ${total}`}</Text>
-      <TouchableOpacity onPress={onRestart}>
-        <Text>Restart Quiz</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onBackToDeck}>
-        <Text>Back to Deck</Text>
-      </TouchableOpacity>
+      <Button onPress={onRestart} text="Restart Quiz" type="success" />
+      <Button onPress={onBackToDeck} text="Back to Deck" type="primary" />
     </View>
   );
 };

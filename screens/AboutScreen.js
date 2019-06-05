@@ -14,6 +14,7 @@ import { WebBrowser, Updates } from 'expo';
 import { connect } from 'react-redux';
 
 import { MonoText } from '../components/StyledText';
+import Button from '../components/Button';
 
 import { handleResetDecks } from '../actions/decks';
 
@@ -156,9 +157,7 @@ class AboutScreen extends React.Component<*, *> {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-            <TouchableOpacity onPress={this.handleResetStorage}>
-              <Text>Reset storage</Text>
-            </TouchableOpacity>
+            <Button onPress={this.handleResetStorage} text="Reset storage" type="danger" />
           </View>
           <View style={styles.welcomeContainer}>
             <Image

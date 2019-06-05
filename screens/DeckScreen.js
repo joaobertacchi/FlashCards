@@ -1,10 +1,19 @@
 // @flow
 
 import React, { Fragment } from 'react';
-import { ScrollView, Text, TouchableOpacity } from 'react-native';
+import { ScrollView, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import type { Deck } from '../types';
+import Button from '../components/Button';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 15,
+    paddingVertical: 25,
+  },
+});
 
 type StateProps = {
   deck: Deck,
@@ -18,7 +27,7 @@ type OwnProps = {
 type Props = StateProps & OwnProps;
 
 const DeckScreen = ({ navigation, deck, loading }: Props) => (
-  <ScrollView>
+  <ScrollView style={styles.container}>
     {loading ? (
       <Text>Loading...</Text>
     ) : (
@@ -28,13 +37,17 @@ const DeckScreen = ({ navigation, deck, loading }: Props) => (
           {deck.questions.length}
           {' cards'}
         </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('AddCard', { deckTitle: deck.title })}>
-          <Text>Create New Question</Text>
-        </TouchableOpacity>
+        <Button
+          onPress={() => navigation.navigate('AddCard', { deckTitle: deck.title })}
+          text="Create New Question"
+          type="primary"
+        />
         {!!deck.questions.length && (
-          <TouchableOpacity onPress={() => navigation.navigate('Quiz', { deckTitle: deck.title })}>
-            <Text>Start a Quiz</Text>
-          </TouchableOpacity>
+          <Button
+            onPress={() => navigation.navigate('Quiz', { deckTitle: deck.title })}
+            text="Start a Quiz"
+            type="success"
+          />
         )}
       </Fragment>
     )}

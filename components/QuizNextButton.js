@@ -1,12 +1,14 @@
 // @flow
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+
+import Button from './Button';
 
 type Props = {
   index: number,
   total: number,
   onShowNextQuestion: () => void,
   onShowQuizResult: () => void,
+  disabled: boolean,
 };
 
 const QuizNextButton = ({
@@ -14,17 +16,24 @@ const QuizNextButton = ({
   total,
   onShowNextQuestion,
   onShowQuizResult,
+  disabled,
 }: Props) => (
   index + 1 < total
     ? (
-      <TouchableOpacity onPress={onShowNextQuestion}>
-        <Text>Next question</Text>
-      </TouchableOpacity>
+      <Button
+        onPress={onShowNextQuestion}
+        text="Next question"
+        type={!disabled ? 'primary' : 'grey'}
+        disabled={disabled}
+      />
     )
     : (
-      <TouchableOpacity onPress={onShowQuizResult}>
-        <Text>Quiz result</Text>
-      </TouchableOpacity>
+      <Button
+        onPress={onShowQuizResult}
+        text="Quiz result"
+        type={!disabled ? 'success' : 'grey'}
+        disabled={disabled}
+      />
     )
 );
 
