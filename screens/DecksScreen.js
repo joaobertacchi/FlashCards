@@ -18,9 +18,25 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  deckContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   separator: {
     height: 1,
     backgroundColor: '#CED0CE',
+  },
+  itemComponent: {
+    flex: 1,
+    height: 80,
+    justifyContent: 'center',
+  },
+  decktitleText: {
+    fontSize: 24,
+  },
+  deckcardText: {
+    fontSize: 18,
+    color: 'grey',
   },
 });
 
@@ -52,13 +68,21 @@ class DecksScreen extends React.Component<Props> {
     const deckSize = deck.questions.length;
     const { navigation } = this.props;
     return (
-      <TouchableOpacity onPress={() => navigation.navigate('Deck', { deckTitle: deck.title })}>
-        <Text>{`${deck.title} - ${deckSize} card${deckSize > 1 ? 's' : ''}`}</Text>
-      </TouchableOpacity>
+      <View style={styles.itemComponent}>
+        <TouchableOpacity
+          style={styles.deckContainer}
+          onPress={() => navigation.navigate('Deck', { deckTitle: deck.title })}
+        >
+          <Text style={styles.decktitleText}>{deck.title}</Text>
+          <Text style={styles.deckcardText}>
+            {`${deckSize} card${deckSize > 1 ? 's' : ''}`}
+          </Text>
+        </TouchableOpacity>
+      </View>
     );
   };
 
-  renderSeparator = () => (<View style={styles.separator} />)
+  renderSeparator = () => <View style={styles.separator} />;
 
   getKey = (deck: Deck) => deck.title;
 
