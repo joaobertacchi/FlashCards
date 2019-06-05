@@ -19,7 +19,7 @@ type Props = {
     | 'successLight'
     | 'dangerLight'
     | 'grey',
-  disabled: boolean,
+  disabled?: boolean,
 };
 
 const baseTheme = {
@@ -152,5 +152,9 @@ const Button = ({
     </TouchableOpacity>
   </View>
 );
+
+Button.defaultProps = {
+  disabled: false,
+};
 
 export default Button;
