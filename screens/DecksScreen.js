@@ -22,6 +22,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  emptyDecksContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    alignItems: 'center',
+  },
+  emptyDecksMessage: {
+    fontSize: 24,
+    textAlign: 'center',
+  },
   separator: {
     height: 1,
     backgroundColor: '#CED0CE',
@@ -47,6 +57,7 @@ type DispatchProps = {
 type StateProps = {
   decks: Decks,
   loading: boolean,
+  isEmpty: boolean,
 };
 
 type Props = DispatchProps &
@@ -74,24 +85,31 @@ class DecksScreen extends React.Component<Props> {
           onPress={() => navigation.navigate('Deck', { deckTitle: deck.title })}
         >
           <Text style={styles.decktitleText}>{deck.title}</Text>
-          <Text style={styles.deckcardText}>
-            {`${deckSize} card${deckSize > 1 ? 's' : ''}`}
-          </Text>
+          <Text style={styles.deckcardText}>{`${deckSize} card${deckSize > 1 ? 's' : ''}`}</Text>
         </TouchableOpacity>
       </View>
     );
   };
+
+  renderEmptyDecks = () => (
+    <View style={styles.emptyDecksContainer}>
+      <Text style={styles.emptyDecksMessage}>You have no decks. Create one for starting...</Text>
+    </View>
+  );
 
   renderSeparator = () => <View style={styles.separator} />;
 
   getKey = (deck: Deck) => deck.title;
 
   render() {
-    const { decks, loading } = this.props;
+    const { decks, loading, isEmpty } = this.props;
     const arrayDecks = getValues<Decks>(decks);
-    return loading ? (
-      <Text>Loading decks...</Text>
-    ) : (
+
+    if (loading) return <Text>Loading decks...</Text>;
+
+    if (isEmpty) return this.renderEmptyDecks();
+
+    return (
       <FlatList
         style={styles.container}
         data={arrayDecks}
@@ -106,6 +124,7 @@ class DecksScreen extends React.Component<Props> {
 const mapStateToProps = ({ decks }) => ({
   decks,
   loading: !decks,
+  isEmpty: Object.keys(decks).length === 0,
 });
 
 const mapDispatchToProps = dispatch => ({
