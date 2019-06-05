@@ -82,8 +82,7 @@ class QuizScreen extends React.PureComponent<Props, State> {
     this.setState({
       isFinished: true,
     });
-    clearLocalNotification()
-      .then(() => setLocalNotification());
+    clearLocalNotification().then(() => setLocalNotification());
   };
 
   setVote = (index: number) => (vote: boolean) => () => {
