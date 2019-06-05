@@ -1,8 +1,8 @@
 // @flow
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
-  Platform, StatusBar, StyleSheet, View,
+  Platform, StatusBar, StyleSheet, SafeAreaView,
 } from 'react-native';
 import {
   AppLoading, Asset, Font, Icon,
@@ -74,17 +74,17 @@ class App extends React.Component<Props, State> {
       );
     }
     return (
-      <View style={styles.container}>
+      <Fragment>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         <AppNavigator />
-      </View>
+      </Fragment>
     );
   }
 
   render() {
     return (
       <Provider store={store}>
-        {this.renderApp()}
+        <SafeAreaView style={styles.container}>{this.renderApp()}</SafeAreaView>
       </Provider>
     );
   }
