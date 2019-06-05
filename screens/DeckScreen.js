@@ -1,7 +1,9 @@
 // @flow
 
 import React, { Fragment } from 'react';
-import { ScrollView, Text, StyleSheet } from 'react-native';
+import {
+  ScrollView, Text, StyleSheet, View,
+} from 'react-native';
 import { connect } from 'react-redux';
 
 import type { Deck } from '../types';
@@ -12,6 +14,25 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 15,
     paddingVertical: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  decktitleText: {
+    fontSize: 32,
+  },
+  deckcardText: {
+    fontSize: 24,
+    color: 'grey',
+  },
+  titleContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
@@ -27,28 +48,31 @@ type OwnProps = {
 type Props = StateProps & OwnProps;
 
 const DeckScreen = ({ navigation, deck, loading }: Props) => (
-  <ScrollView style={styles.container}>
+  <ScrollView contentContainerStyle={styles.container}>
     {loading ? (
       <Text>Loading...</Text>
     ) : (
       <Fragment>
-        <Text>{deck.title}</Text>
-        <Text>
-          {deck.questions.length}
-          {' cards'}
-        </Text>
-        <Button
-          onPress={() => navigation.navigate('AddCard', { deckTitle: deck.title })}
-          text="Create New Question"
-          type="primary"
-        />
-        {!!deck.questions.length && (
+        <View style={styles.titleContainer}>
+          <Text style={styles.decktitleText}>{deck.title}</Text>
+          <Text style={styles.deckcardText}>
+            {`${deck.questions.length} card${deck.questions.length > 1 ? 's' : ''}`}
+          </Text>
+        </View>
+        <View style={styles.buttonsContainer}>
           <Button
-            onPress={() => navigation.navigate('Quiz', { deckTitle: deck.title })}
-            text="Start a Quiz"
-            type="success"
+            onPress={() => navigation.navigate('AddCard', { deckTitle: deck.title })}
+            text="Create New Question"
+            type="primary"
           />
-        )}
+          {!!deck.questions.length && (
+            <Button
+              onPress={() => navigation.navigate('Quiz', { deckTitle: deck.title })}
+              text="Start a Quiz"
+              type="success"
+            />
+          )}
+        </View>
       </Fragment>
     )}
   </ScrollView>
