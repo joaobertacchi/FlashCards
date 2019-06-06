@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 80,
     justifyContent: 'center',
+    backgroundColor: '#E5F7FF',
   },
   decktitleText: {
     fontSize: 24,
@@ -116,6 +117,8 @@ class DecksScreen extends React.Component<Props> {
         renderItem={this.renderItem}
         keyExtractor={this.getKey}
         ItemSeparatorComponent={this.renderSeparator}
+        ListHeaderComponent={this.renderSeparator}
+        ListFooterComponent={this.renderSeparator}
       />
     );
   }

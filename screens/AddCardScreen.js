@@ -1,16 +1,37 @@
 // @flow
 
 import React from 'react';
-import {
-  ScrollView, TextInput,
-} from 'react-native';
+import { ScrollView, TextInput, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import { handleAddCardToDeck } from '../actions/decks';
 
 import type { Card, DeckTitle } from '../types';
 
+import Colors from '../constants/Colors';
+
 import Button from '../components/Button';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+  },
+  cartInput: {
+    minWidth: 220,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.tintColor,
+    fontSize: 28,
+    textAlign: 'center',
+  },
+});
 
 type State = {
   question: string,
@@ -63,19 +84,16 @@ class AddCardScreen extends React.PureComponent<Props, State> {
   render() {
     const { question, answer } = this.state;
     return (
-      <ScrollView>
+      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <TextInput
-          style={{
-            borderWidth: 1,
-          }}
+          style={styles.cartInput}
           onChangeText={this.handleChangeQuestion}
           value={question}
+          multiline={true}
           placeholder="Question"
         />
         <TextInput
-          style={{
-            borderWidth: 1,
-          }}
+          style={styles.cartInput}
           onChangeText={this.handleChangeAnswer}
           value={answer}
           placeholder="Answer"

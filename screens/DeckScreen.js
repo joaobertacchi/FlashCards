@@ -50,7 +50,7 @@ type Props = StateProps & OwnProps;
 const DeckScreen = ({ navigation, deck, loading }: Props) => (
   <ScrollView contentContainerStyle={styles.container}>
     {loading ? (
-      <Text>Loading...</Text>
+      <Text style={styles.decktitleText}>Loading...</Text>
     ) : (
       <Fragment>
         <View style={styles.titleContainer}>

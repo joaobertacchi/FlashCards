@@ -2,18 +2,14 @@
 
 import React from 'react';
 import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  KeyboardAvoidingView,
+  ScrollView, StyleSheet, Text, TextInput, KeyboardAvoidingView, View,
 } from 'react-native';
 import { connect } from 'react-redux';
 
 import type { DeckTitle } from '../types';
 import { handleCreateDeck } from '../actions/decks';
 import Button from '../components/Button';
+import Colors from '../constants/Colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,8 +30,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   titleInput: {
-    minWidth: 150,
-    borderWidth: 1,
+    minWidth: 220,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.tintColor,
     fontSize: 28,
     textAlign: 'center',
   },

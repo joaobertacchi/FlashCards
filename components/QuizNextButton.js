@@ -31,7 +31,7 @@ const QuizNextButton = ({
       <Button
         onPress={onShowQuizResult}
         text="Quiz result"
-        type={!disabled ? 'success' : 'grey'}
+        type={!disabled ? 'primary' : 'grey'}
         disabled={disabled}
       />
     )

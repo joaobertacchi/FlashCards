@@ -1,12 +1,13 @@
 // @flow
 
 import React, { Fragment } from 'react';
-import { ScrollView, Text } from 'react-native';
+import {
+  ScrollView, Text, StyleSheet, View,
+} from 'react-native';
 import { connect } from 'react-redux';
 
 import CardFront from '../components/CardFront';
 import CardBack from '../components/CardBack';
-import QuizNextButton from '../components/QuizNextButton';
 import QuizResult from '../components/QuizResult';
 import type { Questions, ScoreType } from '../types';
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
@@ -32,6 +33,31 @@ type OwnProps = {
 };
 
 type Props = StateProps & OwnProps;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
+  titleText: {
+    fontSize: 24,
+  },
+  subtitleText: {
+    fontSize: 18,
+    color: 'grey',
+  },
+});
 
 class QuizScreen extends React.PureComponent<Props, State> {
   static navigationOptions = ({ navigation }: Props) => ({
@@ -116,7 +142,7 @@ class QuizScreen extends React.PureComponent<Props, State> {
     const { answer, question } = fixedQuestions[questionIndex];
     const questionsLeft = fixedQuestions.length - questionIndex - 1;
     return (
-      <ScrollView>
+      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         {isFinished ? (
           <QuizResult
             questions={fixedQuestions}
@@ -126,8 +152,10 @@ class QuizScreen extends React.PureComponent<Props, State> {
           />
         ) : (
           <Fragment>
-            <Text>{`Question #${questionIndex + 1} of ${fixedQuestions.length}`}</Text>
-            <Text>{`${questionsLeft} question(s) left...`}</Text>
+            <View style={styles.headerContainer}>
+              <Text style={styles.titleText}>{`Question #${questionIndex + 1}`}</Text>
+              <Text style={styles.subtitleText}>{`${questionsLeft} left`}</Text>
+            </View>
             {cardFront ? (
               <CardFront question={question} onShowBack={this.showFront(false)} />
             ) : (

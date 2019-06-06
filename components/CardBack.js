@@ -1,13 +1,13 @@
 // @flow
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import Button from './Button';
 import QuizNextButton from './QuizNextButton';
 
 type Props = {
   answer: string,
-  isCorrect?: boolean,
+  isCorrect: ?boolean,
   onShowFront: () => void,
   onVote: (correct: boolean) => () => void,
   onShowNextQuestion: () => void,
@@ -15,6 +15,26 @@ type Props = {
   cardNumber: number,
   cardCount: number,
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-around',
+  },
+  headerContainer: {
+    flex: 2,
+    justifyContent: 'center',
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  answer: {
+    fontSize: 24,
+    textAlign: 'center',
+  },
+});
 
 const CardBack = ({
   answer,
@@ -26,15 +46,26 @@ const CardBack = ({
   cardNumber,
   cardCount,
 }: Props) => (
-  <View>
-    <Text>{answer}</Text>
-    <Button onPress={onShowFront} text="Show question" type="primaryLight" />
-    <Button onPress={onVote(true)} text="Correct" type={isCorrect ? 'successLight' : 'success'} />
-    <Button
-      onPress={onVote(false)}
-      text="Incorrect"
-      type={isCorrect === false ? 'dangerLight' : 'danger'}
-    />
+  <View style={styles.container}>
+    <View style={styles.headerContainer}>
+      <Text style={styles.answer}>{answer}</Text>
+      <Button onPress={onShowFront} text="Show question" type="primaryLight" />
+    </View>
+
+    <View style={styles.buttonContainer}>
+      <Button
+        minWidth={80}
+        onPress={onVote(true)}
+        text="Correct"
+        type={isCorrect ? 'successLight' : 'success'}
+      />
+      <Button
+        minWidth={80}
+        onPress={onVote(false)}
+        text="Incorrect"
+        type={isCorrect === false ? 'dangerLight' : 'danger'}
+      />
+    </View>
 
     <QuizNextButton
       index={cardNumber}

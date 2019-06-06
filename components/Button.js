@@ -20,6 +20,7 @@ type Props = {
     | 'dangerLight'
     | 'grey',
   disabled?: boolean,
+  minWidth?: ?number,
 };
 
 const baseTheme = {
@@ -100,9 +101,6 @@ const primaryLight = StyleSheet.create({
   ...baseTheme,
   button: {
     ...baseTheme.button,
-    backgroundColor: 'white',
-    borderColor: Colors.tintColor,
-    borderWidth: 1,
   },
   text: {
     ...baseTheme.text,
@@ -144,17 +142,18 @@ const themes = {
 };
 
 const Button = ({
-  onPress, text, type, disabled,
+  onPress, text, type, disabled, minWidth,
 }: Props) => (
   <View style={[themes[type].buttonContainer]}>
     <TouchableOpacity style={[themes[type].button]} disabled={disabled} onPress={onPress}>
-      <Text style={[themes[type].text]}>{text}</Text>
+      <Text style={[themes[type].text, { minWidth }]}>{text}</Text>
     </TouchableOpacity>
   </View>
 );
 
 Button.defaultProps = {
   disabled: false,
+  minWidth: undefined,
 };
 
 export default Button;
