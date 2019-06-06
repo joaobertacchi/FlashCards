@@ -21,7 +21,7 @@ const DecksStack = createStackNavigator({
 
 DecksStack.navigationOptions = {
   tabBarLabel: 'Decks',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: { focused: boolean }) => (
     <TabBarIcon focused={focused} type="MaterialCommunityIcons" name="cards-outline" />
   ),
 };
@@ -32,7 +32,7 @@ const NewDeckStack = createStackNavigator({
 
 NewDeckStack.navigationOptions = {
   tabBarLabel: 'Create deck',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: { focused: boolean }) => (
     <TabBarIcon
       focused={focused}
       type="Ionicons"
@@ -47,7 +47,7 @@ const AboutStack = createStackNavigator({
 
 AboutStack.navigationOptions = {
   tabBarLabel: 'About',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: { focused: boolean }) => (
     <TabBarIcon
       focused={focused}
       name={
