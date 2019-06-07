@@ -42,8 +42,7 @@ class App extends React.Component<Props, State> {
 
   loadResourcesAsync = async () => Promise.all([
     Asset.loadAsync([
-      require('./assets/images/robot-dev.png'),
-      require('./assets/images/robot-prod.png'),
+      require('./assets/images/joao-bertacchi.jpg'),
     ]),
     Font.loadAsync({
       ...Icon.Ionicons.font,
