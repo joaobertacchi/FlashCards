@@ -1,0 +1,8 @@
+node_modules/*
+flow-typed/*
+coverage/*
+assets/*
+.expo/*
+.expo-shared/*
+.vscode/*
+babel.config.js
