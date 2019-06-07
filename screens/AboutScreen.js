@@ -2,18 +2,11 @@
 
 import React from 'react';
 import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
+  Image, ScrollView, StyleSheet, Text, View,
 } from 'react-native';
 import { WebBrowser, Updates } from 'expo';
 import { connect } from 'react-redux';
 
-import { MonoText } from '../components/StyledText';
 import Button from '../components/Button';
 
 import { handleResetDecks } from '../actions/decks';
@@ -31,77 +24,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 10,
   },
   welcomeContainer: {
     alignItems: 'center',
     marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 200,
+    height: 100,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
   },
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
+  linkText: {
     fontSize: 14,
     color: '#2e78b7',
   },
@@ -109,17 +48,7 @@ const styles = StyleSheet.create({
 
 class AboutScreen extends React.Component<*, *> {
   static navigationOptions = {
-    title: 'About',
-  };
-
-  handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes',
-    );
+    title: 'About Me',
   };
 
   handleResetStorage = () => {
@@ -128,70 +57,36 @@ class AboutScreen extends React.Component<*, *> {
     Updates.reloadFromCache();
   };
 
-  maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this.handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools.
-          {' '}
-          {learnMoreButton}
-        </Text>
-      );
-    }
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode, your app will run at full speed.
-      </Text>
-    );
-  }
+  handleMorePress = () => {
+    WebBrowser.openBrowserAsync('https://www.linkedin.com/in/jebertacchi/');
+  };
 
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Button onPress={this.handleResetStorage} text="Reset storage" type="danger" />
-          </View>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-          <View style={styles.getStartedContainer}>
-            {this.maybeRenderDevelopmentModeWarning()}
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
-          </View>
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this.handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
+      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <View style={styles.welcomeContainer}>
+          <Button onPress={this.handleResetStorage} text="Reset storage" type="danger" />
         </View>
-      </View>
+        <View style={styles.welcomeContainer}>
+          <Image
+            source={require('../assets/images/joao-bertacchi.jpg')}
+            style={styles.welcomeImage}
+          />
+        </View>
+        <View style={styles.getStartedContainer}>
+          <Text style={styles.developmentModeText}>
+            Currently working as Software Developer Engineer for ProFUSION Embedded Systems. Worked
+            for 10+ years as software development engineer using primarily C, C++, Python, Ruby, and
+            Java languages. Experience with Scrum and CCPM project management. Co-founder of
+            AulaViva Tecnologia Educacional, an EdTech company where I work as CTO doing product
+            management and web development.
+            {' '}
+            <Text onPress={this.handleMorePress} style={styles.linkText}>
+              More...
+            </Text>
+          </Text>
+        </View>
+      </ScrollView>
     );
   }
 }
