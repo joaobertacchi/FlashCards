@@ -19,10 +19,13 @@ This app was tested on a real device with Android 8.0 and Expo Client version 2.
 
 ## Project additions
 
-* redux / redux-thunk
-* flow
-* eslint
-* jest
+* **redux / redux-thunk**: used for decks state management and side-effects handling
+* **flow**: used for type checking.
+* **eslint**: it was configured to enforce Udacity's JavaScript code style.
+* **pre-commit and pre-push hooks**: used husky package to set pre-commit, pre-push scripts for enforcing lint and flow rules.
+* **jest**: used jest and enzyme for testing.
+* **About Screen**: author's info and reset local storage feature
+* **App customization**: personalized icon, splash screen and components.
 
 ## Project Specs
 
