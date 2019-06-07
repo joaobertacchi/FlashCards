@@ -9,6 +9,10 @@ This is a mobile app that allow users to study a collection of flashcards. User 
 1. `yarn start`
 1. Use Expo Client on your device to scan the QR code printed by the last command.
 
+## App try-out
+
+Open [Bertacchi's Flashcards](https://expo.io/@joaobertacchi/FlashCards) using Expo Client.
+
 ## App platform
 
 This app was tested on a real device with Android 8.0 and Expo Client version 2.10.6.
