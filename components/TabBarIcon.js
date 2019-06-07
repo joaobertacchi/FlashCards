@@ -38,4 +38,8 @@ const TabBarIcon = (props: Props) => {
   );
 };
 
+TabBarIcon.defaultProps = {
+  type: 'Ionicons',
+};
+
 export default TabBarIcon;

@@ -1,7 +1,7 @@
 // @flow
 import { AsyncStorage } from 'react-native';
 import * as StorageAPI from '../storage';
-import StorageConstant from '../../constants/Storage';
+// import StorageConstant from '../../constants/Storage';
 
 describe('saveDeckTitle', () => {
   beforeEach(async () => {

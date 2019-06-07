@@ -89,7 +89,7 @@ class AddCardScreen extends React.PureComponent<Props, State> {
           style={styles.cartInput}
           onChangeText={this.handleChangeQuestion}
           value={question}
-          multiline={true}
+          multiline
           placeholder="Question"
         />
         <TextInput

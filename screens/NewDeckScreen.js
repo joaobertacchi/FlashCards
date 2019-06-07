@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-  ScrollView, StyleSheet, Text, TextInput, KeyboardAvoidingView, View,
+  ScrollView, StyleSheet, Text, TextInput, KeyboardAvoidingView,
 } from 'react-native';
 import { connect } from 'react-redux';
 

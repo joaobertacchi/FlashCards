@@ -53,6 +53,7 @@ class App extends React.Component<Props, State> {
   handleLoadingError = (error: string) => {
     // In this case, you might want to report the error to your error
     // reporting service, for example Sentry
+    // eslint-disable-next-line no-console
     console.warn(error);
   };
 

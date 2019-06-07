@@ -11,6 +11,6 @@ const mock = () => {
   jest.mock('AsyncStorage', () => mockImpl);
 };
 
-const release = () => jest.unmock('AsyncStorage');
+// const release = () => jest.unmock('AsyncStorage');
 
 mock();

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // @flow
 
 const logger = (store: Object): Function => (next: Function): Function => (action: Object): any => {

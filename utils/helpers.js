@@ -52,6 +52,7 @@ export async function setLocalNotification() {
         });
         AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.warn(
           'A bug in Expo Client 2.11.0 (SDK 33) prevents correct local notification scheduling. See https://github.com/expo/expo/issues/4356. For testing local notifications use standalone app or Expo Client 2.10.6 [Android](https://d1ahtucjixef4r.cloudfront.net/Exponent-2.10.6.apk); [iOS](https://dpq5q02fu5f55.cloudfront.net/Exponent-2.10.0.tar.gz): ',
           e,

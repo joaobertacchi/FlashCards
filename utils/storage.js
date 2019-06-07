@@ -16,31 +16,7 @@ const createDecks = (title: string, questions: Array<Card> = []): Decks => ({
 export const getDecks = async (): Promise<Decks> => {
   let resultJson = await AsyncStorage.getItem(StorageConstants.key);
   if (!resultJson) {
-    const initialDecks = {
-      // React: {
-      //   title: 'React',
-      //   questions: [
-      //     {
-      //       question: 'What is React?',
-      //       answer: 'A library for managing user interfaces',
-      //     },
-      //     {
-      //       question: 'Where do you make Ajax requests in React?',
-      //       answer: 'The componentDidMount lifecycle event',
-      //     },
-      //   ],
-      // },
-      // JavaScript: {
-      //   title: 'JavaScript',
-      //   questions: [
-      //     {
-      //       question: 'What is a closure?',
-      //       answer:
-      //         'The combination of a function and the lexical environment within which that function was declared.',
-      //     },
-      //   ],
-      // },
-    };
+    const initialDecks = {};
     const initialDecksJson = JSON.stringify(initialDecks);
     await AsyncStorage.setItem(StorageConstants.key, initialDecksJson);
     resultJson = await AsyncStorage.getItem(StorageConstants.key);
