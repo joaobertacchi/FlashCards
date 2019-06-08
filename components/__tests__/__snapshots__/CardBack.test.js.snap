@@ -1,0 +1,742 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardBack snapshot renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 2,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 24,
+          "textAlign": "center",
+        }
+      }
+    >
+      answer
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderRadius": 7,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#2f95dc",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": undefined,
+              },
+            ]
+          }
+        >
+          Show question
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "green",
+            "borderRadius": 7,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": 80,
+              },
+            ]
+          }
+        >
+          Correct
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "red",
+            "borderRadius": 7,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": 80,
+              },
+            ]
+          }
+        >
+          Incorrect
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "lightgrey",
+          "borderColor": "grey",
+          "borderRadius": 7,
+          "borderWidth": 1,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "grey",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Next question
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CardBack snapshot renders correctly 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 2,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 24,
+          "textAlign": "center",
+        }
+      }
+    >
+      answer
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderRadius": 7,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#2f95dc",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": undefined,
+              },
+            ]
+          }
+        >
+          Show question
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "green",
+            "borderRadius": 7,
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "green",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": 80,
+              },
+            ]
+          }
+        >
+          Correct
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "red",
+            "borderRadius": 7,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": 80,
+              },
+            ]
+          }
+        >
+          Incorrect
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#2f95dc",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Next question
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CardBack snapshot renders correctly 3`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 2,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 24,
+          "textAlign": "center",
+        }
+      }
+    >
+      answer
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderRadius": 7,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#2f95dc",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": undefined,
+              },
+            ]
+          }
+        >
+          Show question
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "green",
+            "borderRadius": 7,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": 80,
+              },
+            ]
+          }
+        >
+          Correct
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginBottom": 20,
+            "marginHorizontal": 20,
+            "marginTop": 10,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "red",
+            "borderRadius": 7,
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "red",
+                "fontSize": 18,
+                "minWidth": 180,
+                "textAlign": "center",
+              },
+              Object {
+                "minWidth": 80,
+              },
+            ]
+          }
+        >
+          Incorrect
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#2f95dc",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Next question
+      </Text>
+    </View>
+  </View>
+</View>
+`;

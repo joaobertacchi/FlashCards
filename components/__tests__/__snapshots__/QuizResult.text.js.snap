@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardBack snapshot renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 32,
+        "textAlign": "center",
+      }
+    }
+  >
+    You scored 100%
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "green",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Restart Quiz
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#2f95dc",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Back to Deck
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CardBack snapshot renders correctly 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 32,
+        "textAlign": "center",
+      }
+    }
+  >
+    You scored 0%
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "green",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Restart Quiz
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#2f95dc",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Back to Deck
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CardBack snapshot renders correctly 3`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 32,
+        "textAlign": "center",
+      }
+    }
+  >
+    You scored 0%
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "green",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Restart Quiz
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#2f95dc",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Back to Deck
+      </Text>
+    </View>
+  </View>
+</View>
+`;

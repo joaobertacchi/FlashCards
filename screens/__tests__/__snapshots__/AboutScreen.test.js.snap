@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutScreen snapshot renders as expected 1`] = `
+<ScrollViewMock
+  contentContainerStyle={
+    Object {
+      "paddingTop": 10,
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "marginBottom": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    <Button
+      disabled={false}
+      onPress={[Function]}
+      text="Reset storage"
+      type="danger"
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "marginBottom": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    <Component
+      source={1}
+      style={
+        Object {
+          "height": 100,
+          "resizeMode": "contain",
+          "width": 200,
+        }
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "marginHorizontal": 50,
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "color": "rgba(0,0,0,0.4)",
+          "fontSize": 14,
+          "lineHeight": 19,
+          "marginBottom": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Currently working as Software Developer Engineer for ProFUSION Embedded Systems. Worked for 10+ years as software development engineer using primarily C, C++, Python, Ruby, and Java languages. Experience with Scrum and CCPM project management. Co-founder of AulaViva Tecnologia Educacional, an EdTech company where I work as CTO doing product management and web development.
+       
+      <Component
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#2e78b7",
+            "fontSize": 14,
+          }
+        }
+      >
+        More...
+      </Component>
+    </Component>
+  </Component>
+</ScrollViewMock>
+`;

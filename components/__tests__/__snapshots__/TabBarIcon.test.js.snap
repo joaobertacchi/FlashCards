@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabBarIcon snapshot renders correctly Next Question button 1`] = `<Text />`;
+
+exports[`TabBarIcon snapshot renders correctly Next Question button 2`] = `<Text />`;
+
+exports[`TabBarIcon snapshot renders correctly Next Question button 3`] = `<Text />`;
+
+exports[`TabBarIcon snapshot renders correctly Next Question button 4`] = `<Text />`;

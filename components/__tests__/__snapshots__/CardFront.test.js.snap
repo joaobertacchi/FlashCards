@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 28,
+        "textAlign": "center",
+      }
+    }
+  >
+    question
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#2f95dc",
+          "borderRadius": 7,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "minWidth": 180,
+              "textAlign": "center",
+            },
+            Object {
+              "minWidth": undefined,
+            },
+          ]
+        }
+      >
+        Show Answer
+      </Text>
+    </View>
+  </View>
+</View>
+`;

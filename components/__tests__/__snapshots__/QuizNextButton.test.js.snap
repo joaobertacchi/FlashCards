@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuizNextButton snapshot renders correctly Next Question button 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 20,
+        "marginHorizontal": 20,
+        "marginTop": 10,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#2f95dc",
+        "borderRadius": 7,
+        "justifyContent": "center",
+        "opacity": 1,
+        "padding": 12,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontSize": 18,
+            "minWidth": 180,
+            "textAlign": "center",
+          },
+          Object {
+            "minWidth": undefined,
+          },
+        ]
+      }
+    >
+      Next question
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`QuizNextButton snapshot renders correctly Next Question button 2`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 20,
+        "marginHorizontal": 20,
+        "marginTop": 10,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "lightgrey",
+        "borderColor": "grey",
+        "borderRadius": 7,
+        "borderWidth": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "padding": 12,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "grey",
+            "fontSize": 18,
+            "minWidth": 180,
+            "textAlign": "center",
+          },
+          Object {
+            "minWidth": undefined,
+          },
+        ]
+      }
+    >
+      Next question
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`QuizNextButton snapshot renders correctly Quiz Result button 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 20,
+        "marginHorizontal": 20,
+        "marginTop": 10,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#2f95dc",
+        "borderRadius": 7,
+        "justifyContent": "center",
+        "opacity": 1,
+        "padding": 12,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontSize": 18,
+            "minWidth": 180,
+            "textAlign": "center",
+          },
+          Object {
+            "minWidth": undefined,
+          },
+        ]
+      }
+    >
+      Quiz result
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`QuizNextButton snapshot renders correctly Quiz Result button 2`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 20,
+        "marginHorizontal": 20,
+        "marginTop": 10,
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "lightgrey",
+        "borderColor": "grey",
+        "borderRadius": 7,
+        "borderWidth": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "padding": 12,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "grey",
+            "fontSize": 18,
+            "minWidth": 180,
+            "textAlign": "center",
+          },
+          Object {
+            "minWidth": undefined,
+          },
+        ]
+      }
+    >
+      Quiz result
+    </Text>
+  </View>
+</View>
+`;

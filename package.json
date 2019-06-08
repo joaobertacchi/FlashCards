@@ -26,16 +26,21 @@
     "setupFiles": [
       "./jestSetupFile.js"
     ],
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "expo": "^32.0.0",
     "mock-async-storage": "^2.1.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-navigation": "^3.0.9",
-    "react-redux": "^6.0.1",
+    "react-redux": "^5",
     "react-test-renderer": "^16.8.6",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
@@ -45,6 +50,7 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
     "babel-preset-expo": "^5.0.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.3.0",
@@ -61,7 +67,9 @@
     "husky": "^2.4.0",
     "jest-expo": "^32.0.0",
     "metro-react-native-babel-preset": "^0.54.1",
-    "prettier-eslint": "^8.8.2"
+    "prettier-eslint": "^8.8.2",
+    "react-dom": "^16.8.6",
+    "redux-mock-store": "^1.5.3"
   },
   "private": true
 }

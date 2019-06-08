@@ -27,7 +27,10 @@ const QuizResult = ({
   questions, score, onRestart, onBackToDeck,
 }: Props) => {
   const total = questions.length;
-  const correct = Object.values(score).reduce((acc, isCorrect) => (isCorrect ? acc + 1 : acc), 0);
+  const correct = Object.values(score).reduce(
+    (acc, isCorrect) => (isCorrect === true ? acc + 1 : acc),
+    0,
+  );
   return (
     <View style={styles.container}>
       <Text style={styles.score}>{`You scored ${Math.round((100 * correct) / total)}%`}</Text>
