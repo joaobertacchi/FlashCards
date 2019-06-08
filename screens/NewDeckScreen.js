@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 
 import type { DeckTitle } from '../types';
+import { isValidString } from '../utils/helpers';
 import { handleCreateDeck } from '../actions/decks';
 import Button from '../components/Button';
 import Colors from '../constants/Colors';
@@ -75,6 +76,7 @@ class NewDeckScreen extends React.Component<Props, State> {
 
   render() {
     const { deckTitle } = this.state;
+    const disabledButton = !isValidString(deckTitle);
     return (
       <KeyboardAvoidingView style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -85,7 +87,12 @@ class NewDeckScreen extends React.Component<Props, State> {
             value={deckTitle}
             placeholder="Deck Title"
           />
-          <Button onPress={this.handleAddDeck} text="Create Deck" type="primary" />
+          <Button
+            disabled={disabledButton}
+            onPress={this.handleAddDeck}
+            text="Create Deck"
+            type={disabledButton ? 'grey' : 'primary'}
+          />
         </ScrollView>
       </KeyboardAvoidingView>
     );
