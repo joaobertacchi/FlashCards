@@ -61,3 +61,7 @@ export async function setLocalNotification() {
     }
   }
 }
+
+export function isValidString(param: any) {
+  return typeof param === 'string' && param.trim().length > 0;
+}

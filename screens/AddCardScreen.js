@@ -8,6 +8,8 @@ import { handleAddCardToDeck } from '../actions/decks';
 
 import type { Card, DeckTitle } from '../types';
 
+import { isValidString } from '../utils/helpers';
+
 import Colors from '../constants/Colors';
 
 import Button from '../components/Button';
@@ -83,6 +85,7 @@ class AddCardScreen extends React.PureComponent<Props, State> {
 
   render() {
     const { question, answer } = this.state;
+    const disabledButton = !isValidString(question) || !isValidString(answer);
     return (
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <TextInput
@@ -98,7 +101,12 @@ class AddCardScreen extends React.PureComponent<Props, State> {
           value={answer}
           placeholder="Answer"
         />
-        <Button onPress={this.handleAddCard} text="Save Question" type="primary" />
+        <Button
+          disabled={disabledButton}
+          onPress={this.handleAddCard}
+          text="Save Question"
+          type={disabledButton ? 'grey' : 'primary'}
+        />
       </ScrollView>
     );
   }
